@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Employee</title>
+</head>
+<body>
+<h2>Employee List</h2>
+
+<a th:href="@{'/employee/addEmployeePage'}">Add Employee</a>
+
+<br/>
+
+<table th:if="${ not #lists.isEmpty{bean.employeeList}" border=1>
+    <tr>
+        <td>User Name</td>
+        <td>Password</td>
+        <td>Email</td>
+        <td>Title</td>
+        <td>Sex</td>
+        <td>Salary</td>
+        <td>Age</td>
+    </tr>
+    <tr th:each="employee : ${bean}">
+        <td th:text="${ employee.employeeList.userName}"></td>
+        <td th:text="${ employee.employeeList.password}"></td>
+        <td th:text="${ employee.employeeList.email}"></td>
+        <td th:text="${ employee.employeeList.title}"></td>
+        <td th:text="${ employee.employeeList.sex}"></td>
+        <td th:text="${ employee.employeeList.salary}"></td>
+        <td th:text="${ employee.employeeList.age}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
+
+
+
+<!--facing a problem, where thymeleaf not aware about the model returned by Controller(Spring MVC), thus failing to bind &#45;&#45;!-->
